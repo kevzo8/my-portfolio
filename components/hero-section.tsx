@@ -24,7 +24,7 @@ const personas = [
     title: "Freelance Developer",
     subtitle: "Kevin Devs",
     description: "Building affordable websites and apps to help businesses grow. Sharing my dev journey and helping anyone who wants to learn. Let's build something great together!",
-    image: "/images/kevin-smile.png",
+    image: "/images/kevzo_chibi.png",
     icon: Laptop,
     color: "from-sky-500 to-blue-400",
     stats: ["Affordable Pricing", "Custom Design", "Clear Communication"]
@@ -140,11 +140,11 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Welcome to my portfolio
+            Welcome to my portfolio :)
           </motion.p>
           
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -179,7 +179,7 @@ export function HeroSection() {
           >
             I wear many hats - with over {new Date().getFullYear() - 2014} years of experience building software, 
             teaching the next generation, creating content, and advocating for inclusivity. 
-            Get to know me more below!
+            I leverage AI technologies and modern frameworks to craft intelligent, scalable solutions.
           </motion.p>
 
           {/* Social Links */}
@@ -311,7 +311,7 @@ export function HeroSection() {
           <Button asChild variant="outline" size="default" className="border-primary/50 hover:bg-primary/10 bg-transparent">
             <Link href="#services">
               <Laptop className="w-4 h-4 mr-2" />
-              Work With Me
+              Work With Me!
             </Link>
           </Button>
         </motion.div>
