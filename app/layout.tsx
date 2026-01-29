@@ -12,7 +12,10 @@ export const metadata: Metadata = {
   keywords: ['Kevin Vega', 'Kevzo8', 'Software Engineer', 'VTuber', 'Filipino Developer', 'Content Creator', 'Educator'],
   authors: [{ name: 'Kevin Vega' }],
   creator: 'Kevin Vega',
-    generator: 'v0.app'
+  icons: {
+    icon: '/favicon.png',
+    apple: '/apple-icon.svg',
+  }
 }
 
 export const viewport: Viewport = {
@@ -28,6 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         {children}
         <Analytics />

@@ -281,12 +281,10 @@ export function ProjectsSection() {
 
         {filteredProjects.length > 6 && (
           <FadeIn delay={0.3} className="text-center mt-8">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
-                variant="outline"
-                size="lg"
                 onClick={() => setShowAll(!showAll)}
-                className="border-primary/50 hover:bg-primary/10"
+                className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-medium shadow-lg hover:shadow-primary/30 transition-all border-0"
               >
                 {showAll ? (
                   <>

@@ -71,7 +71,7 @@ const experiences: Experience[] = [
     skills: ["PHP", "Yii Framework", "CodeIgniter", "JavaScript", "Teaching"]
   },
   {
-    title: "Developer Intern",
+    title: "Web Developer Intern",
     company: "International Rice Research Institute (IRRI)",
     companyUrl: "https://www.irri.org",
     location: "Los Banos, Philippines",
@@ -202,24 +202,28 @@ function ExperienceCard({ experience }: { experience: Experience }) {
               )}
             </AnimatePresence>
             
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="mt-4 w-full text-muted-foreground hover:text-primary"
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="mt-4"
             >
-              {isExpanded ? (
-                <>
-                  <ChevronUp className="w-4 h-4 mr-2" />
-                  Show Less
-                </>
-              ) : (
-                <>
-                  <ChevronDown className="w-4 h-4 mr-2" />
-                  Show More Details
-                </>
-              )}
-            </Button>
+              <Button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-medium shadow-lg hover:shadow-primary/30 transition-all border-0"
+              >
+                {isExpanded ? (
+                  <>
+                    <ChevronUp className="w-4 h-4 mr-2" />
+                    Show Less
+                  </>
+                ) : (
+                  <>
+                    <ChevronDown className="w-4 h-4 mr-2" />
+                    Explore Full Details
+                  </>
+                )}
+              </Button>
+            </motion.div>
           </CardContent>
         </Card>
       </motion.div>
@@ -244,7 +248,7 @@ export function ExperienceSection() {
           </p>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="max-w-4xl mx-auto space-y-4">
+        <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-4 w-full">
           {experiences.map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />
           ))}

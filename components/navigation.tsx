@@ -10,8 +10,8 @@ const navItems = [
   { label: "Experience", href: "#experience" },
   { label: "Teaching", href: "#teaching" },
   { label: "Projects", href: "#projects" },
+  { label: "Services", href: "#services" },
   { label: "Streaming", href: "#streaming" },
-  { label: "Advocacy", href: "#advocacy" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -40,7 +40,7 @@ export function Navigation() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [navItems])
 
   return (
     <motion.nav

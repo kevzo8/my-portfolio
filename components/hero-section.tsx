@@ -297,7 +297,7 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <motion.div 
-          className="flex flex-wrap gap-3 justify-center mt-6"
+          className="flex flex-wrap gap-3 justify-center mt-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
@@ -309,16 +309,16 @@ export function HeroSection() {
             </Link>
           </Button>
           <Button asChild variant="outline" size="default" className="border-primary/50 hover:bg-primary/10 bg-transparent">
-            <Link href="#cv-download">
-              <ExternalLink className="w-4 h-4 mr-2" />
-              Download CV
+            <Link href="#services">
+              <Laptop className="w-4 h-4 mr-2" />
+              Work With Me
             </Link>
           </Button>
         </motion.div>
 
         {/* Scroll Indicator */}
         <motion.div 
-          className="flex justify-center mt-8"
+          className="flex justify-center mt-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 8, 0] }}
           transition={{ delay: 1, y: { duration: 1.5, repeat: Number.POSITIVE_INFINITY } }}

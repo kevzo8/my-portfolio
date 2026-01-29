@@ -128,28 +128,6 @@ export function ServicesSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h3 className="text-2xl font-bold text-foreground mb-6">Why Work With Me</h3>
-            <div className="space-y-4">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.5 + index * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle size={20} className="text-primary shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">{benefit}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -186,6 +164,28 @@ export function ServicesSection() {
                   <ArrowRight size={18} />
                 </motion.a>
               </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h3 className="text-2xl font-bold text-foreground mb-6">Why Work With Me</h3>
+            <div className="space-y-4">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={benefit}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.5 + index * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle size={20} className="text-primary shrink-0 mt-0.5" />
+                  <span className="text-muted-foreground">{benefit}</span>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

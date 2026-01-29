@@ -124,7 +124,7 @@ export function TeachingSection() {
         </motion.div>
 
         {/* Teaching Positions */}
-        <div className="space-y-4">
+        <div className="grid md:grid-cols-2 gap-4">
           {teachingPositions.map((position, index) => {
             const isExpanded = expandedPositions[index] ?? false
             const showAll = showAllCourses[index] || false
@@ -189,27 +189,31 @@ export function TeachingSection() {
                     </div>
 
                     {position.courses.length > 4 && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          setShowAllCourses(prev => ({ ...prev, [index]: !showAll }))
-                        }}
-                        className="mb-4 text-xs"
+                      <motion.div
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="mb-4"
                       >
-                        {showAll ? (
-                          <>
-                            <ChevronUp className="w-3 h-3 mr-1" />
-                            Show Less
-                          </>
-                        ) : (
-                          <>
-                            <ChevronDown className="w-3 h-3 mr-1" />
-                            Show {position.courses.length - 4} More Courses
-                          </>
-                        )}
-                      </Button>
+                        <Button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setShowAllCourses(prev => ({ ...prev, [index]: !showAll }))
+                          }}
+                          className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-medium shadow-lg hover:shadow-primary/30 transition-all border-0 text-xs"
+                        >
+                          {showAll ? (
+                            <>
+                              <ChevronUp className="w-3 h-3 mr-1" />
+                              Show Less Courses
+                            </>
+                          ) : (
+                            <>
+                              <ChevronDown className="w-3 h-3 mr-1" />
+                              Show {position.courses.length - 4} More Courses
+                            </>
+                          )}
+                        </Button>
+                      </motion.div>
                     )}
 
                     {/* Highlights */}

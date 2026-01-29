@@ -180,24 +180,28 @@ export function EducationSection() {
               </AnimatePresence>
 
               {achievements.length > 4 && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setShowAllAchievements(!showAllAchievements)}
-                  className="w-full text-muted-foreground hover:text-primary"
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="mt-4"
                 >
-                  {showAllAchievements ? (
-                    <>
-                      <ChevronUp className="w-4 h-4 mr-2" />
-                      Show Less
-                    </>
-                  ) : (
-                    <>
-                      <ChevronDown className="w-4 h-4 mr-2" />
-                      See All {achievements.length} Achievements
-                    </>
-                  )}
-                </Button>
+                  <Button
+                    onClick={() => setShowAllAchievements(!showAllAchievements)}
+                    className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-medium shadow-lg hover:shadow-primary/30 transition-all border-0"
+                  >
+                    {showAllAchievements ? (
+                      <>
+                        <ChevronUp className="w-4 h-4 mr-2" />
+                        Show Less
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown className="w-4 h-4 mr-2" />
+                        See All {achievements.length} Achievements
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
               )}
             </div>
 

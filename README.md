@@ -1,30 +1,27 @@
-# Portfolio website design
+# Kevin Vega's Portfolio
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A modern, interactive portfolio website showcasing my work as a Software Engineer, Educator, VTuber, and Content Creator.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/kevzo8s-projects/v0-portfolio-website-design)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/lIDYN3lORSJ)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://kevzo8.me)
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+This is my personal portfolio website built with Next.js, showcasing my experience, projects, skills, and content creation work. The site features interactive animations, multiple sections highlighting different aspects of my professional and creative endeavors.
 
-## Deployment
+## Features
 
-Your project is live at:
+- **Modern Design**: Clean, responsive interface with smooth animations
+- **Interactive Components**: Engaging hero section with 3D visualizations
+- **Comprehensive Sections**: Experience, Teaching, Skills, Projects, Education, Services, Streaming, Advocacy, and Interests
+- **Contact Integration**: Easy-to-use contact form for inquiries
+- **Mobile Responsive**: Fully optimized for all device sizes
 
-**[https://vercel.com/kevzo8s-projects/v0-portfolio-website-design](https://vercel.com/kevzo8s-projects/v0-portfolio-website-design)**
+## Tech Stack
 
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.app/chat/lIDYN3lORSJ](https://v0.app/chat/lIDYN3lORSJ)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+- **Framework**: Next.js 16
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **3D Graphics**: Three.js with React Three Fiber
+- **UI Components**: Radix UI
+- **Form Handling**: React Hook Form
+- **Analytics**: Vercel Analytics
