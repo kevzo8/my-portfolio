@@ -28,7 +28,7 @@ const contactCategories = [
     bgColor: "bg-green-400/10",
     contacts: [
       { label: "Email", value: "cmsckvz@gmail.com", href: "mailto:cmsckvz@gmail.com" },
-      { label: "Facebook", value: "Kevin Devs", href: "https://facebook.com/csmckvz" },
+      { label: "Facebook", value: "Kevin Devs", href: "https://facebook.com/cmsckvz" },
     ]
   },
   {
