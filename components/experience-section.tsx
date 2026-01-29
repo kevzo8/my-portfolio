@@ -1,0 +1,255 @@
+"use client"
+
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { FadeIn, StaggerContainer, StaggerItem } from "./motion-wrapper"
+import { Briefcase, ChevronDown, ChevronUp, Calendar, MapPin, Award, Code, ExternalLink } from "lucide-react"
+
+interface Experience {
+  title: string
+  company: string
+  companyUrl: string
+  location: string
+  period: string
+  type: string
+  description: string
+  achievements: string[]
+  skills: string[]
+}
+
+const experiences: Experience[] = [
+  {
+    title: "Instructor & Lecturer - Computer Science & IT",
+    company: "College of Computer Studies, Ateneo de Naga University",
+    companyUrl: "https://www.adnu.edu.ph",
+    location: "Naga City, Philippines",
+    period: "Feb 2023 - Dec 2025",
+    type: "Full-time",
+    description: "Built and led a community of students and junior instructors, providing structured feedback, performance assessment, technological advancements and professional development guidance.",
+    achievements: [
+      "Team Leadership & Mentorship: Built and led a community of students and junior instructors, providing structured feedback, performance assessment, and professional development guidance",
+      "Curriculum Design & Technical Instruction: Designed and delivered courses across software development (web/mobile), cloud computing, machine learning, data mining, cybersecurity, and IT ethics, integrating Agile, CI/CD, UI/UX, and full SDLC practices",
+      "Hackathon Coaching & Startup Advising: Mentored multiple award-winning teams including StormWatch (1st Place, AI.DEAS for Impact 2025 - DICT), HARIBON (1st Place, RSTW 2025 - DOST), and NFTPadala (1st Place, Quantum Computing & Blockchain Hackathon - QCSP)",
+      "Startup Enablement & External Partnerships: Supported early-stage student startups that secured seed funding grants from the Naga City LGU",
+      "Thesis, Capstone & Special Projects Advisory: Advised theses and special projects, guiding students through problem framing, system design, implementation, evaluation, and ethical considerations"
+    ],
+    skills: ["Flutter", "React", "Node.js", "Machine Learning", "Cloud Computing", "Agile", "Mentorship"]
+  },
+  {
+    title: "Software Engineer (SaaS / Fintech)",
+    company: "Whitecloak Technologies, Inc.",
+    companyUrl: "https://whitecloak.com",
+    location: "Pasig City, Philippines",
+    period: "Aug 2021 - Feb 2024",
+    type: "Full-time",
+    description: "Delivered mobile and web applications for banking and enterprise clients using Flutter, React, Node.js, Java, and GraphQL.",
+    achievements: [
+      "SaaS Product Delivery & Client Collaboration: Delivered mobile and web applications for banking and enterprise clients using Flutter, React, Node.js, Java, and GraphQL. Worked closely with clients to clarify requirements and ensure overall client satisfaction",
+      "Cross-Functional & Vendor Coordination: Collaborated daily with Product Owners, Tech Leads, Business Analysts, UI/UX Designers, QA Testers, and Engineering Managers, as well as external vendors, SaaS/BaaS providers, and security teams (including VAPT)",
+      "Agile Execution & Team Facilitation: Led daily stand-up meetings and presented progress, risks, and outcomes during sprint reviews. Maintained a consistent 100% story point burn rate",
+      "End-to-End Engineering & Quality: Worked across frontend, backend, and design teams to ensure cohesive implementations, clean architecture, and maintainable code",
+      "Mentorship & Onboarding: Supported junior engineers through onboarding, technical guidance, and continuous feedback"
+    ],
+    skills: ["Flutter", "Dart", "React", "Node.js", "Java", "Kotlin", "GraphQL", "Firebase"]
+  },
+  {
+    title: "Instructor & Student Assistant - Computer Science",
+    company: "Institute of Computer Science, University of the Philippines Los Banos",
+    companyUrl: "https://ics.uplb.edu.ph",
+    location: "Laguna, Philippines",
+    period: "Jun 2012 - Jul 2016",
+    type: "Part-time",
+    description: "Taught foundational and advanced CS courses while guiding students on projects and assessments.",
+    achievements: [
+      "Teaching & Mentorship: Taught foundational and advanced CS courses while guiding students on projects and assessments, developing both technical and professional skills",
+      "IT Support: Managed lab systems, software setup, and academic tools to support faculty and students",
+      "Yii Framework Training: Conducted hands-on Yii Framework training for IT professionals at DOST-SEI (Oct 28-30 & Nov 13-15, 2014)"
+    ],
+    skills: ["PHP", "Yii Framework", "CodeIgniter", "JavaScript", "Teaching"]
+  },
+  {
+    title: "Developer Intern",
+    company: "International Rice Research Institute (IRRI)",
+    companyUrl: "https://www.irri.org",
+    location: "Los Banos, Philippines",
+    period: "Apr - May 2013",
+    type: "Internship",
+    description: "Developed user management modules for the Breeding Information Management System (BIMS).",
+    achievements: [
+      "Web Application Development: Developed user management modules for the Breeding Information Management System (BIMS), supporting researchers, developers, and institutional stakeholders",
+      "Software Delivery Processes: Worked under both Waterfall and Agile delivery models, gaining hands-on experience in structured planning and iterative development",
+      "Team Coordination & Communication: Led daily stand-up meetings to report progress, surface blockers, and align development tasks",
+      "Stakeholder Presentations: Presented system features and development progress to researchers and international collaborators based in Finland"
+    ],
+    skills: ["PHP", "Yii Framework", "MySQL", "Agile", "Waterfall"]
+  },
+  {
+    title: "Computer Shop Attendant",
+    company: "Davianne's Net Cafe",
+    companyUrl: "#",
+    location: "Naga City, Philippines",
+    period: "Nov 2006 - Apr 2010",
+    type: "Part-time",
+    description: "My first job! Managed computer rentals, troubleshooting, and software assistance for clients during high school.",
+    achievements: [
+      "Customer Service & IT Support: Managed computer rentals, troubleshooting, and software assistance for clients",
+      "Early Tech Experience: Fostered early experience in tech support and client satisfaction that shaped my career path"
+    ],
+    skills: ["Customer Service", "IT Support", "Troubleshooting"]
+  }
+]
+
+function ExperienceCard({ experience }: { experience: Experience }) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  return (
+    <StaggerItem>
+      <motion.div
+        whileHover={{ scale: 1.01 }}
+        transition={{ duration: 0.2 }}
+      >
+        <Card className="bg-card/80 backdrop-blur-sm border-border/50 overflow-hidden">
+          <CardHeader className="pb-2">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+              <div className="flex-1">
+                <CardTitle className="text-lg md:text-xl text-foreground mb-1">
+                  {experience.title}
+                </CardTitle>
+                <a
+                  href={experience.companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                >
+                  {experience.company}
+                  {experience.companyUrl !== "#" && <ExternalLink className="w-3 h-3" />}
+                </a>
+              </div>
+              <div className="flex flex-col items-start md:items-end gap-1 text-sm text-muted-foreground">
+                <div className="flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  <span>{experience.period}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <MapPin className="w-3 h-3" />
+                  <span>{experience.location}</span>
+                </div>
+                <Badge variant="outline" className="text-xs">
+                  {experience.type}
+                </Badge>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4">{experience.description}</p>
+            
+            <AnimatePresence>
+              {isExpanded && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="space-y-4 pt-4 border-t border-border/50">
+                    <div>
+                      <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                        <Award className="w-4 h-4 text-primary" />
+                        Key Achievements
+                      </h4>
+                      <ul className="space-y-2">
+                        {experience.achievements.map((achievement, i) => (
+                          <motion.li
+                            key={i}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="text-sm text-muted-foreground flex items-start gap-2"
+                          >
+                            <span className="text-primary mt-1">*</span>
+                            <span>{achievement}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+                        <Code className="w-4 h-4 text-primary" />
+                        Technologies Used
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {experience.skills.map((skill, i) => (
+                          <motion.div
+                            key={skill}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: i * 0.05 }}
+                          >
+                            <Badge variant="secondary" className="text-xs">
+                              {skill}
+                            </Badge>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="mt-4 w-full text-muted-foreground hover:text-primary"
+            >
+              {isExpanded ? (
+                <>
+                  <ChevronUp className="w-4 h-4 mr-2" />
+                  Show Less
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="w-4 h-4 mr-2" />
+                  Show More Details
+                </>
+              )}
+            </Button>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </StaggerItem>
+  )
+}
+
+export function ExperienceSection() {
+  return (
+    <section id="experience" className="py-16 md:py-20 bg-card/30">
+      <div className="container px-4">
+        <FadeIn className="text-center mb-10">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <Briefcase className="w-6 h-6 text-primary" />
+            <h2 className="text-2xl md:text-3xl font-bold">
+              Work <span className="text-primary">Experience</span>
+            </h2>
+          </div>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm">
+            From my first job at a computer shop to building enterprise SaaS products 
+            and teaching the next generation of developers
+          </p>
+        </FadeIn>
+
+        <StaggerContainer staggerDelay={0.1} className="max-w-4xl mx-auto space-y-4">
+          {experiences.map((experience, index) => (
+            <ExperienceCard key={index} experience={experience} />
+          ))}
+        </StaggerContainer>
+      </div>
+    </section>
+  )
+}
