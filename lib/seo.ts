@@ -4,7 +4,7 @@
  */
 
 export const siteConfig = {
-  siteUrl: 'https://kevzo8.com', // ⚠️ UPDATE THIS WITH YOUR ACTUAL DOMAIN
+  siteUrl: 'https://kevinguadalupevega.com',
   siteName: 'Kevzo8 - Kevin Vega Portfolio',
   title: 'Kevzo8 | Kevin Vega - Software Engineer, Educator, Content Creator',
   description: 'Portfolio of Kevin Vega (Kevzo8) - Filipino Software Engineer, University Instructor, VTuber, and Variety Streamer.',

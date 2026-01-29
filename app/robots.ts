@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://kevzo8.com/sitemap.xml', // Update with your domain
+    sitemap: 'https://kevinguadalupevega.com/sitemap.xml',
   }
 }

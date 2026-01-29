@@ -7,7 +7,7 @@ import './globals.css'
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-const siteUrl = 'https://kevzo8.com'; // Update with your actual domain
+const siteUrl = 'https://kevinguadalupevega.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
