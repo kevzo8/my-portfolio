@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -9,7 +10,8 @@ import { FadeIn, StaggerContainer, StaggerItem } from "./motion-wrapper"
 import { Briefcase, ChevronDown, ChevronUp, Calendar, MapPin, Award, Code, ExternalLink } from "lucide-react"
 
 interface Experience {
-  title: string
+  role: string
+  specialization: string
   company: string
   companyUrl: string
   location: string
@@ -18,16 +20,19 @@ interface Experience {
   description: string
   achievements: string[]
   skills: string[]
+  logo?: string
 }
 
 const experiences: Experience[] = [
   {
-    title: "Instructor & Lecturer - Computer Science & IT",
+    role: "Instructor & Lecturer",
+    specialization: "Computer Science & Information Technology",
     company: "College of Computer Studies, Ateneo de Naga University",
     companyUrl: "https://www.adnu.edu.ph",
     location: "Naga City, Philippines",
     period: "Feb 2023 - Dec 2025",
     type: "Full-time",
+    logo: "/images/Ateneo_de_Naga_University_logo.png",
     description: "Built and led a community of students and junior instructors, providing structured feedback, performance assessment, technological advancements and professional development guidance.",
     achievements: [
       "Team Leadership & Mentorship: Built and led a community of students and junior instructors, providing structured feedback, performance assessment, and professional development guidance",
@@ -39,12 +44,14 @@ const experiences: Experience[] = [
     skills: ["Flutter", "React", "Node.js", "Machine Learning", "Cloud Computing", "Agile", "Mentorship"]
   },
   {
-    title: "Software Engineer (SaaS / Fintech)",
+    role: "Software Engineer",
+    specialization: "SaaS / Fintech",
     company: "Whitecloak Technologies, Inc.",
     companyUrl: "https://whitecloak.com",
     location: "Pasig City, Philippines",
     period: "Aug 2021 - Feb 2024",
     type: "Full-time",
+    logo: "/images/whitecloak.png",
     description: "Delivered mobile and web applications for banking and enterprise clients using Flutter, React, Node.js, Java, and GraphQL.",
     achievements: [
       "SaaS Product Delivery & Client Collaboration: Delivered mobile and web applications for banking and enterprise clients using Flutter, React, Node.js, Java, and GraphQL. Worked closely with clients to clarify requirements and ensure overall client satisfaction",
@@ -56,12 +63,14 @@ const experiences: Experience[] = [
     skills: ["Flutter", "Dart", "React", "Node.js", "Java", "Kotlin", "GraphQL", "Firebase"]
   },
   {
-    title: "Instructor & Student Assistant - Computer Science",
+    role: "Instructor & Student Assistant",
+    specialization: "Computer Science",
     company: "Institute of Computer Science, University of the Philippines Los Banos",
     companyUrl: "https://ics.uplb.edu.ph",
     location: "Laguna, Philippines",
     period: "Jun 2012 - Jul 2016",
     type: "Part-time",
+    logo: "/images/uplb_logo.png",
     description: "Taught foundational and advanced CS courses while guiding students on projects and assessments.",
     achievements: [
       "Teaching & Mentorship: Taught foundational and advanced CS courses while guiding students on projects and assessments, developing both technical and professional skills",
@@ -71,12 +80,14 @@ const experiences: Experience[] = [
     skills: ["PHP", "Yii Framework", "CodeIgniter", "JavaScript", "Teaching"]
   },
   {
-    title: "Web Developer Intern",
+    role: "Web Developer",
+    specialization: "Internship",
     company: "International Rice Research Institute (IRRI)",
     companyUrl: "https://www.irri.org",
     location: "Los Banos, Philippines",
     period: "Apr - May 2013",
     type: "Internship",
+    logo: "/images/irri.png",
     description: "Developed user management modules for the Breeding Information Management System (BIMS).",
     achievements: [
       "Web Application Development: Developed user management modules for the Breeding Information Management System (BIMS), supporting researchers, developers, and institutional stakeholders",
@@ -87,13 +98,13 @@ const experiences: Experience[] = [
     skills: ["PHP", "Yii Framework", "MySQL", "Agile", "Waterfall"]
   },
   {
-    title: "Computer Shop Attendant",
+    role: "Computer Shop Attendant",
+    specialization: "IT Support & Operations",
     company: "Davianne's Net Cafe",
     companyUrl: "#",
     location: "Naga City, Philippines",
     period: "Nov 2006 - Apr 2010",
-    type: "Part-time",
-    description: "My first job! Managed computer rentals, troubleshooting, and software assistance for clients during high school.",
+    type: "Part-time",    logo: "/images/daviannes-logo.svg",    description: "My first job! Managed computer rentals, troubleshooting, and software assistance for clients during high school.",
     achievements: [
       "Customer Service & IT Support: Managed computer rentals, troubleshooting, and software assistance for clients",
       "Early Tech Experience: Fostered early experience in tech support and client satisfaction that shaped my career path"
@@ -113,33 +124,49 @@ function ExperienceCard({ experience }: { experience: Experience }) {
       >
         <Card className="bg-card/80 backdrop-blur-sm border-border/50 overflow-hidden">
           <CardHeader className="pb-2">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+            <div className="flex flex-col md:flex-row md:items-start gap-4">
+              {experience.logo && (
+                <div className="w-16 h-16 md:w-20 md:h-20 shrink-0">
+                  <Image
+                    src={experience.logo}
+                    alt={experience.company}
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              )}
               <div className="flex-1">
-                <CardTitle className="text-lg md:text-xl text-foreground mb-1">
-                  {experience.title}
-                </CardTitle>
-                <a
-                  href={experience.companyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary font-medium hover:underline inline-flex items-center gap-1"
-                >
-                  {experience.company}
-                  {experience.companyUrl !== "#" && <ExternalLink className="w-3 h-3" />}
-                </a>
-              </div>
-              <div className="flex flex-col items-start md:items-end gap-1 text-sm text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
-                  <span>{experience.period}</span>
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                  <div className="flex-1">
+                    <CardTitle className="text-lg md:text-xl text-foreground mb-1">
+                      {experience.role}
+                    </CardTitle>
+                    <p className="text-sm text-muted-foreground mb-2">{experience.specialization}</p>
+                    <a
+                      href={experience.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary font-medium hover:underline inline-flex items-center gap-1"
+                    >
+                      {experience.company}
+                      {experience.companyUrl !== "#" && <ExternalLink className="w-3 h-3" />}
+                    </a>
+                  </div>
+                  <div className="flex flex-col items-start md:items-end gap-1 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3" />
+                      <span>{experience.period}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <MapPin className="w-3 h-3" />
+                      <span>{experience.location}</span>
+                    </div>
+                    <Badge variant="outline" className="text-xs">
+                      {experience.type}
+                    </Badge>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  <MapPin className="w-3 h-3" />
-                  <span>{experience.location}</span>
-                </div>
-                <Badge variant="outline" className="text-xs">
-                  {experience.type}
-                </Badge>
               </div>
             </div>
           </CardHeader>

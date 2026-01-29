@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { GraduationCap, Users, BookOpen, Award, ChevronDown, ChevronUp } from "lucide-react"
 import { useState } from "react"
@@ -11,6 +12,7 @@ const teachingPositions = [
     role: "Instructor",
     period: "Jul 2014 - Jul 2016",
     location: "Los Banos, Laguna",
+    logo: "/images/uplb_logo.png",
     courses: [
       { code: "IT 1", name: "Information Technology Literacy", description: "A General Education Course under the MST Cluster covering IT concepts and applications (AY 2014-2016)" },
       { code: "CMSC 2", name: "Introduction to the Internet", description: "Tools and services of the Internet, protocols, search engines, FTP, email, listservers, and HTML programming (AY 2014-2016)" },
@@ -32,6 +34,7 @@ const teachingPositions = [
     role: "Part-time then Full-time Instructor",
     period: "Feb 2023 - Dec 2025",
     location: "Naga City, Camarines Sur",
+    logo: "/images/Ateneo_de_Naga_University_logo.png",
     courses: [
       { code: "CSMC 411 / ITMC 411", name: "Thesis & Capstone", description: "Supervised students on thesis and capstone projects, providing mentorship, technical guidance, and project supervision (AY 2024-2025)" },
       { code: "ITEC 304", name: "Cloud Computing Technologies", description: "Cloud computing concepts using AWS, Google Cloud, Convex, MongoDB, and cloud service integration (1st Sem 2025)" },
@@ -143,15 +146,27 @@ export function TeachingSection() {
                   onClick={() => setExpandedPositions(prev => ({ ...prev, [index]: !prev[index] }))}
                   className="w-full p-4 md:p-5 text-left flex items-start justify-between gap-4"
                 >
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-2 mb-1">
-                      <h3 className="font-bold text-base md:text-lg">{position.institution}</h3>
-                      <span className="px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary">
-                        {position.period}
-                      </span>
+                  <div className="flex items-start gap-3 flex-1">
+                    {position.logo && (
+                      <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 relative">
+                        <Image
+                          src={position.logo}
+                          alt={position.institution}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
+                    <div className="flex-1">
+                      <div className="flex flex-wrap items-center gap-2 mb-1">
+                        <h3 className="font-bold text-base md:text-lg">{position.institution}</h3>
+                        <span className="px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary">
+                          {position.period}
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground text-sm">{position.role}</p>
+                      <p className="text-muted-foreground text-xs">{position.location}</p>
                     </div>
-                    <p className="text-muted-foreground text-sm">{position.role}</p>
-                    <p className="text-muted-foreground text-xs">{position.location}</p>
                   </div>
                   <motion.div
                     animate={{ rotate: isExpanded ? 180 : 0 }}
