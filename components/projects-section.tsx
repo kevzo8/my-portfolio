@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { FadeIn } from "./motion-wrapper"
-import { FolderGit2, ChevronDown, ChevronUp, Trophy, Building2, GraduationCap, Sparkles } from "lucide-react"
+import { FolderGit2, ChevronDown, ChevronUp, Trophy, Building2, GraduationCap, Sparkles, Briefcase } from "lucide-react"
 
 interface Project {
   title: string
@@ -234,9 +234,9 @@ export function ProjectsSection() {
       <div className="container px-4">
         <FadeIn className="text-center mb-6">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <FolderGit2 className="w-6 h-6 text-primary" />
+            <Briefcase className="w-6 h-6 text-blue-400" />
             <h2 className="text-2xl md:text-3xl font-bold">
-              Projects & <span className="text-primary">Portfolio</span>
+              Projects & <span className="text-blue-400">Portfolio</span>
             </h2>
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm">
