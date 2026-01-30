@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server"
+import { Resend } from "resend"
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
   try {
@@ -18,34 +21,29 @@ export async function POST(request: Request) {
     // Log the download request (in production, you'd send an actual email)
     console.log(`[CV Download Request] Name: ${name || "Not provided"}, Email: ${email}, Time: ${timestamp}`)
 
-    // Send notification via email using fetch to an email API
-    // Using EmailJS or similar service - for now we'll use a webhook
+    // Send notification via email using Resend
     try {
-      // Attempt to send via a simple webhook/email service
-      await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: process.env.WEB3FORMS_KEY || "YOUR_ACCESS_KEY",
-          subject: `CV Download Request from ${name || email}`,
-          from_name: "Kevzo8 Portfolio",
-          to: notificationEmail,
-          message: `
-Someone requested to download your CV!
-
-Name: ${name || "Not provided"}
-Email: ${email}
-Time: ${timestamp}
-
-This person may be interested in your work or services.
-          `,
-          email: email,
-        }),
+      await resend.emails.send({
+        from: "CV Download <onboarding@resend.dev>",
+        to: notificationEmail,
+        subject: `CV Download Request from ${name || email}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #333;">CV Download Notification</h2>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px;">
+              <p><strong>Name:</strong> ${name || "Not provided"}</p>
+              <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+              <p><strong>Time:</strong> ${timestamp}</p>
+            </div>
+            <p style="color: #888; font-size: 12px; margin-top: 20px;">
+              Someone has downloaded your CV from your portfolio.
+            </p>
+          </div>
+        `,
       })
+      console.log("[CV Download Email Sent Successfully]", { name, email })
     } catch (emailError) {
-      console.error("Email notification failed:", emailError)
+      console.error("[CV Download Email Error]", emailError)
       // Continue anyway - don't block the download
     }
 

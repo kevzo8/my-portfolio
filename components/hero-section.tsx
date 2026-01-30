@@ -69,14 +69,18 @@ const typingRoles = [
   "a Cosplayer",
   "Hearing Impaired",
   "an Accessibility Advocate",
+  "an Engineering Manager",
+  "a Machine Learning Engineer",
+  "an AI Enthusiast",
 ]
 
 const socialLinks = [
+  { icon: Linkedin, href: "https://linkedin.com/in/kgvega", label: "LinkedIn", color: "hover:text-blue-400" },
+  { icon: Github, href: "https://github.com/kevzo8", label: "GitHub", color: "hover:text-foreground" },
+  { icon: Mail, href: "mailto:cmsckvz@gmail.com", label: "Email", color: "hover:text-green-400" },
   { icon: Twitch, href: "https://twitch.tv/kevzo8", label: "Twitch", color: "hover:text-purple-400" },
   { icon: Youtube, href: "https://youtube.com/kevzo8", label: "YouTube", color: "hover:text-red-400" },
   { icon: Twitter, href: "https://twitter.com/kevzo8", label: "Twitter", color: "hover:text-sky-400" },
-  { icon: Github, href: "https://github.com/kevzo8", label: "GitHub", color: "hover:text-foreground" },
-  { icon: Linkedin, href: "https://linkedin.com/in/kgvega", label: "LinkedIn", color: "hover:text-blue-400" },
 ]
 
 export function HeroSection() {
@@ -177,9 +181,7 @@ export function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            I wear many hats - with over {new Date().getFullYear() - 2014} years of experience building software, 
-            teaching the next generation, creating content, and advocating for inclusivity. 
-            I leverage AI technologies and modern frameworks to craft intelligent, scalable solutions.
+            With over {new Date().getFullYear() - 2014} years of experience, I bridge academia and industry—building AI & ML-powered solutions, mentoring hundreds of students, leading engineering teams, and creating inclusive content spaces. From hackathon wins to enterprise systems, I'm passionate about creating impact and advocating for accessibility in tech.
           </motion.p>
 
           {/* Social Links */}

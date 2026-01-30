@@ -92,8 +92,8 @@ export function TeachingSection() {
           className="text-center mb-10"
         >
           <div className="flex items-center justify-center gap-2 mb-3">
-            <GraduationCap className="w-6 h-6 text-primary" />
-            <h2 className="text-2xl md:text-3xl font-bold">Teaching Experience</h2>
+            <GraduationCap className="w-6 h-6 text-green-400" />
+            <h2 className="text-2xl md:text-3xl font-bold">Teaching <span className="text-green-400">Experience</span></h2>
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm">
             Shaping the next generation of computer scientists and software engineers through 

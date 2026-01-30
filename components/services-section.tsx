@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import Image from "next/image"
-import { Code, Palette, Smartphone, MessageSquare, CheckCircle, ArrowRight, Sparkles, X } from "lucide-react"
+import { Code, Palette, Smartphone, MessageSquare, CheckCircle, ArrowRight, Sparkles, X, Briefcase } from "lucide-react"
 
 const services = [
   {
@@ -81,8 +81,11 @@ export function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
-          <span className="text-primary text-xs font-medium tracking-wider uppercase">Kevin Devs</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-2 mb-3">Freelance Services</h2>
+          <span className="text-blue-400 text-xs font-medium tracking-wider uppercase">Kevin Devs</span>
+          <div className="flex items-center justify-center gap-2 mt-2 mb-3">
+            <Briefcase className="w-6 h-6 text-blue-400" />
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">Freelance <span className="text-blue-400">Services</span></h2>
+          </div>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm leading-relaxed">
             I build affordable websites and apps to help businesses grow. 
             Sharing my dev journey and helping anyone who wants to learn.

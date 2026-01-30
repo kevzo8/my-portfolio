@@ -28,7 +28,7 @@ const education = [
     details: "DOST Scholar",
     specialization: "Computer Science with focus on Software Development, Bioinformatics & Artificial Intelligence",
     location: "Laguna, Philippines",
-    highlights: ["Chess Varsity Team", "Student Assistant at Institute of Computer Science", "IRRI Internship"],
+    highlights: ["Student Assistant at Institute of Computer Science", "IRRI Internship", "Chess Varsity Team"],
     logo: "/images/uplb_logo.png",
     isHigherEd: true
   },
@@ -39,7 +39,7 @@ const education = [
     details: "Honor Student",
     specialization: "Science and Technology Curriculum",
     location: "Naga City, Philippines",
-    highlights: ["Atomatika Science Club", "Chess Varsity Team", "Drum/Xylophone Marching Corps"],
+    highlights: ["Atomatika Science Club", "Drum/Xylophone Marching Corps", "Chess Varsity Team"],
     logo: "/images/ncshs_logo.png",
     isHigherEd: false
   },
@@ -93,9 +93,9 @@ export function EducationSection() {
       <div className="container px-4 max-w-[1400px] mx-auto">
         <FadeIn className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <GraduationCap className="w-6 h-6 text-primary" />
+            <GraduationCap className="w-6 h-6 text-green-400" />
             <h2 className="text-2xl md:text-3xl font-bold">
-              Education & <span className="text-primary">Achievements</span>
+              Education & <span className="text-green-400">Achievements</span>
             </h2>
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm">

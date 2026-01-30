@@ -43,6 +43,20 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const targetId = href.replace("#", "")
+    const element = document.getElementById(targetId)
+    if (element) {
+      const offsetTop = element.offsetTop - 80 // Offset for fixed nav
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      })
+    }
+    setIsOpen(false)
+  }
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -85,6 +99,7 @@ export function Navigation() {
               <motion.a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -133,7 +148,7 @@ export function Navigation() {
                   <motion.a
                     key={item.label}
                     href={item.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
