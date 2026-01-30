@@ -12,7 +12,7 @@ const interests = [
     title: "Gaming",
     color: "text-purple-400",
     bgColor: "bg-purple-400/10",
-    items: ["Genshin Impact", "Honkai: Star Rail", "Pokemon", "Wuthering Waves", "Zenless Zone Zero"],
+    items: ["Genshin Impact", "Honkai: Star Rail", "Pokémon", "Wuthering Waves", "Zenless Zone Zero"],
     note: "Gacha games are my comfort zone!"
   },
   {

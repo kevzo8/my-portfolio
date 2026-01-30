@@ -33,7 +33,7 @@ const personas = [
     id: "educator",
     title: "CS & IT Educator",
     subtitle: "Shaping Minds",
-    description: "Lecturer at UP Los Banos and Ateneo de Naga, teaching the next generation of computer scientists. From algorithms to capstone projects, I guide students to success.",
+    description: "Lecturer at UP Los Baños and Ateneo de Naga, teaching the next generation of computer scientists. From algorithms to capstone projects, I guide students to success.",
     image: "/images/academic.jpg",
     icon: GraduationCap,
     color: "from-emerald-500 to-teal-400",

@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button"
 
 const teachingPositions = [
   {
-    institution: "University of the Philippines Los Banos",
+    institution: "University of the Philippines Los Baños",
     role: "Instructor",
     period: "Jul 2014 - Jul 2016",
-    location: "Los Banos, Laguna",
+    location: "Los Baños, Laguna",
     logo: "/images/uplb_logo.png",
     courses: [
       { code: "IT 1", name: "Information Technology Literacy", description: "A General Education Course under the MST Cluster covering IT concepts and applications (AY 2014-2016)" },
@@ -127,7 +127,7 @@ export function TeachingSection() {
         </motion.div>
 
         {/* Teaching Positions */}
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {teachingPositions.map((position, index) => {
             const isExpanded = expandedPositions[index] ?? false
             const showAll = showAllCourses[index] || false
@@ -142,11 +142,8 @@ export function TeachingSection() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-card/50 rounded-xl border border-border/50 overflow-hidden"
               >
-                <button
-                  onClick={() => setExpandedPositions(prev => ({ ...prev, [index]: !prev[index] }))}
-                  className="w-full p-4 md:p-5 text-left flex items-start justify-between gap-4"
-                >
-                  <div className="flex items-start gap-3 flex-1">
+                <div className="w-full p-4 md:p-5 text-left">
+                  <div className="flex items-start gap-3 flex-1 mb-4">
                     {position.logo && (
                       <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0 relative">
                         <Image
@@ -168,23 +165,10 @@ export function TeachingSection() {
                       <p className="text-muted-foreground text-xs">{position.location}</p>
                     </div>
                   </div>
-                  <motion.div
-                    animate={{ rotate: isExpanded ? 180 : 0 }}
-                    className="text-muted-foreground mt-1"
-                  >
-                    <ChevronDown className="w-5 h-5" />
-                  </motion.div>
-                </button>
 
-                <motion.div
-                  initial={false}
-                  animate={{ height: isExpanded ? "auto" : 0, opacity: isExpanded ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-4 md:px-5 pb-4 md:pb-5 border-t border-border/50 pt-4">
+                  <div className="space-y-4 border-t border-border/50 pt-4">
                     {/* Courses */}
-                    <h4 className="font-semibold mb-3 text-sm flex items-center gap-2">
+                    <h4 className="font-semibold text-sm flex items-center gap-2">
                       <BookOpen className="w-4 h-4 text-primary" />
                       Courses Taught
                     </h4>
@@ -210,10 +194,7 @@ export function TeachingSection() {
                         className="mb-4"
                       >
                         <Button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            setShowAllCourses(prev => ({ ...prev, [index]: !showAll }))
-                          }}
+                          onClick={() => setShowAllCourses(prev => ({ ...prev, [index]: !showAll }))}
                           className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground font-medium shadow-lg hover:shadow-primary/30 transition-all border-0 text-xs"
                         >
                           {showAll ? (
@@ -232,7 +213,7 @@ export function TeachingSection() {
                     )}
 
                     {/* Highlights */}
-                    <h4 className="font-semibold mb-2 text-sm flex items-center gap-2">
+                    <h4 className="font-semibold text-sm flex items-center gap-2">
                       <Award className="w-4 h-4 text-primary" />
                       Highlights
                     </h4>
@@ -245,7 +226,7 @@ export function TeachingSection() {
                       ))}
                     </ul>
                   </div>
-                </motion.div>
+                </div>
               </motion.div>
             )
           })}

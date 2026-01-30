@@ -33,7 +33,7 @@ const experiences: Experience[] = [
     period: "Feb 2023 - Dec 2025",
     type: "Full-time",
     logo: "/images/Ateneo_de_Naga_University_logo.png",
-    description: "Built and led a community of students and junior instructors, providing structured feedback, performance assessment, technological advancements and professional development guidance.",
+    description: "Built and led a vibrant community of students and junior instructors, designing comprehensive curricula across web/mobile development, cloud computing, and machine learning. Mentored award-winning hackathon teams, advised thesis and capstone projects, and supported student startups in securing seed funding from the city government.",
     achievements: [
       "Team Leadership & Mentorship: Built and led a community of students and junior instructors, providing structured feedback, performance assessment, and professional development guidance",
       "Curriculum Design & Technical Instruction: Designed and delivered courses across software development (web/mobile), cloud computing, machine learning, data mining, cybersecurity, and IT ethics, integrating Agile, CI/CD, UI/UX, and full SDLC practices",
@@ -52,7 +52,7 @@ const experiences: Experience[] = [
     period: "Aug 2021 - Feb 2024",
     type: "Full-time",
     logo: "/images/whitecloak.png",
-    description: "Delivered mobile and web applications for banking and enterprise clients using Flutter, React, Node.js, Java, and GraphQL.",
+    description: "Delivered robust mobile and web applications for banking and enterprise clients using Flutter, React, Node.js, Java, and GraphQL. Optimized frontend performance and user experience while handling quality assurance testing, backend API integration, and technical documentation. Performed cross-functional roles spanning frontend optimization, QA testing, and backend coordination. Led daily stand-ups and sprint ceremonies to maintain team momentum and ensure consistent delivery.",
     achievements: [
       "SaaS Product Delivery & Client Collaboration: Delivered mobile and web applications for banking and enterprise clients using Flutter, React, Node.js, Java, and GraphQL. Worked closely with clients to clarify requirements and ensure overall client satisfaction",
       "Cross-Functional & Vendor Coordination: Collaborated daily with Product Owners, Tech Leads, Business Analysts, UI/UX Designers, QA Testers, and Engineering Managers, as well as external vendors, SaaS/BaaS providers, and security teams (including VAPT)",
@@ -65,13 +65,13 @@ const experiences: Experience[] = [
   {
     role: "Instructor & Student Assistant",
     specialization: "Computer Science",
-    company: "Institute of Computer Science, University of the Philippines Los Banos",
+    company: "Institute of Computer Science, University of the Philippines Los Baños",
     companyUrl: "https://ics.uplb.edu.ph",
     location: "Laguna, Philippines",
     period: "Jun 2012 - Jul 2016",
-    type: "Part-time",
+    type: "Full-time",
     logo: "/images/uplb_logo.png",
-    description: "Taught foundational and advanced CS courses while guiding students on projects and assessments.",
+    description: "Taught foundational and advanced CS courses to hundreds of students while managing IT infrastructure and academic systems. Conducted professional Yii Framework training for DOST-SEI IT professionals, and provided comprehensive guidance on projects, assessments, and career development.",
     achievements: [
       "Teaching & Mentorship: Taught foundational and advanced CS courses while guiding students on projects and assessments, developing both technical and professional skills",
       "IT Support: Managed lab systems, software setup, and academic tools to support faculty and students",
@@ -88,7 +88,7 @@ const experiences: Experience[] = [
     period: "Apr - May 2013",
     type: "Internship",
     logo: "/images/irri.png",
-    description: "Developed user management modules for the Breeding Information Management System (BIMS).",
+    description: "Developed user management modules for the Breeding Information Management System (BIMS) supporting researchers, developers, and institutional stakeholders. Worked across Waterfall and Agile methodologies, led daily stand-ups, and presented system progress to international collaborators in Finland.",
     achievements: [
       "Web Application Development: Developed user management modules for the Breeding Information Management System (BIMS), supporting researchers, developers, and institutional stakeholders",
       "Software Delivery Processes: Worked under both Waterfall and Agile delivery models, gaining hands-on experience in structured planning and iterative development",
@@ -275,7 +275,7 @@ export function ExperienceSection() {
           </p>
         </FadeIn>
 
-        <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-4 w-full">
+        <StaggerContainer staggerDelay={0.1} className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {experiences.map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />
           ))}
