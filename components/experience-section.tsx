@@ -25,6 +25,34 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
+    role: "IT & Operations Manager",
+    specialization: "Hospitality Operations, Web & Brand Systems",
+    company: "Villa Kathreyna",
+    companyUrl: "https://villakathreyna.com",
+    location: "San Fernando, Camarines Sur",
+    period: "Sep 2024 - Present",
+    type: "Part-time",
+    logo: "/images/villa_kathreyna.png",
+    description: "Led the villa's end-to-end digital and brand transformation by building the official website, designing the logo and visual identity, and establishing a consistent brand system. Set up and optimized social media presence and booking platform listings to improve visibility and bookings, while streamlining operations through automation, better graphics, and clearer processes.",
+    achievements: [
+      "Website & Brand Identity: Built the official website, created the logo, and developed the overall design and branding system",
+      "Social Media & Booking Platform Setup: Established and optimized Facebook, Instagram, Agoda, Booking.com, and Airbnb profiles",
+      "Operational Automation: Improved automations and streamlined internal workflows to reduce manual effort",
+      "Creative Direction: Produced updated graphics and visual assets to strengthen brand consistency",
+      "Process Optimization: Standardized procedures and communication to improve operational efficiency"
+    ],
+    skills: [
+      "Web Design",
+      "Branding",
+      "UI/UX",
+      "Social Media",
+      "Booking Platforms",
+      "Operations",
+      "Automation",
+      "Graphic Design"
+    ]
+  },
+  {
     role: "Instructor & Lecturer",
     specialization: "Computer Science & Information Technology",
     company: "College of Computer Studies, Ateneo de Naga University",
@@ -84,7 +112,7 @@ const experiences: Experience[] = [
     specialization: "Internship",
     company: "International Rice Research Institute (IRRI)",
     companyUrl: "https://www.irri.org",
-    location: "Los Banos, Philippines",
+    location: "Los Baños, Laguna",
     period: "Apr - May 2013",
     type: "Internship",
     logo: "/images/irri.png",
@@ -264,9 +292,9 @@ export function ExperienceSection() {
       <div className="container px-4">
         <FadeIn className="text-center mb-10">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <Briefcase className="w-6 h-6 text-primary" />
+            <Briefcase className="w-6 h-6 text-blue-400" />
             <h2 className="text-2xl md:text-3xl font-bold">
-              Work <span className="text-primary">Experience</span>
+              Work <span className="text-blue-400">Experience</span>
             </h2>
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm">

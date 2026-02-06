@@ -70,9 +70,9 @@ export function InterestsSection() {
       <div className="container px-4">
         <FadeIn className="text-center mb-10">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <Heart className="w-6 h-6 text-accent" />
+            <Heart className="w-6 h-6 text-purple-400" />
             <h2 className="text-2xl md:text-3xl font-bold">
-              Beyond <span className="text-accent">Work</span>
+              Beyond <span className="text-purple-400">Work</span>
             </h2>
           </div>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm">
